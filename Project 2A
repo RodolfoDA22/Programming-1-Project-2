@@ -1,0 +1,80 @@
+import java.util.*;
+
+public class RleProgram {
+
+    //Scanner is in the class so it can be used in all methods
+    public static Scanner scnr = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+        //Variables
+        boolean loop = true;
+        byte[] imageData = new byte[1000000000];
+
+        System.out.println("Welcome to the RLE image encoder!");
+        System.out.println("\nDisplaying Spectrum Image: ");
+
+        ConsoleGfx.displayImage(ConsoleGfx.testRainbow);
+
+        while(loop){
+
+            System.out.println("\nRLE Menu");
+            System.out.println("--------");
+            System.out.println("0. Exit");
+            System.out.println("1. Load File");
+            System.out.println("2. Load Test Image");
+            System.out.println("3. Read RLE String");
+            System.out.println("4. Read RLE Hex String");
+            System.out.println("5. Read Data Hex String");
+            System.out.println("6. Display Image");
+            System.out.println("7. Display RLE String");
+            System.out.println("8. Display Hex RLE Data");
+            System.out.println("9. Display Hex Flat Data");
+            System.out.print("\nSelect a Menu Option: ");
+            int menu = scnr.nextInt();
+
+            if (menu == 0){
+                loop = false;
+            }
+            else if (menu == 1){
+                System.out.print("\nEnter name of file to load: ");
+                String filename = scnr.next();
+                imageData = ConsoleGfx.loadFile(filename);
+
+            }
+            else if (menu == 2){
+                System.out.println("Test image data loaded.");
+                imageData = ConsoleGfx.testImage;
+
+            }
+            else if (menu == 3){
+                System.out.println("Enter an RLE string to be decoded: ");
+
+            }
+            else if (menu == 4){
+                System.out.println("Enter the hex string holding RLE data: ");
+
+            }
+            else if (menu == 5){
+                System.out.println("Enter the hex string holding flat data: ");
+
+            }
+            else if (menu == 6){
+                ConsoleGfx.displayImage(imageData);
+
+            }
+            else if (menu == 7){
+                System.out.println("RLE representation: ");
+
+            }
+            else if (menu == 8){
+                System.out.println("RLE hex values: ");
+
+            }
+            else if (menu == 9){
+                System.out.println("Flat hex values: ");
+
+            }
+        }
+    }
+}
